@@ -1,4 +1,6 @@
 const jwt = require('jsonwebtoken')
+
+
 const userModel = require("../models/user.model")
 
 
@@ -31,4 +33,5 @@ req.user = user
   
 }
 
-module.exports = router ;
+
+module.exports = authMiddleware;

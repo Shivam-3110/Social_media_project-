@@ -12,7 +12,6 @@ async function registerController (req , res){
             message:"username  alreadyexist"
         })
     }
-
     const user = await userModel.create({
         username,
         password : await bcrypt.hash(password,10)
@@ -38,7 +37,7 @@ async function loginController(req,res){
     if(!user) {
         return res.status(400).json({message:"user not found"})
     }
-    const isPasswordvalid = await bcrypt.compare(password,user.password) ;
+    const isPasswordvalid =await bcrypt.compare(password, user.password) ;
 
     if(!isPasswordvalid){
         return res.status(400).json({message:"Invalid password"});
