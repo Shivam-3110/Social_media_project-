@@ -19,6 +19,12 @@ const contents = [
 const response = await ai.models.generateContent({
   model: "gemini-2.5-flash",
   contents: contents,
+  config: {
+    systemInstruction: `you are an expert in generating captions for images.
+    you generate single caption for the image.
+    your caption should be concise and relevant to the image.
+    you use hashtags and emojis in the caption.`
+  }
 });
 return response.text;
 }
